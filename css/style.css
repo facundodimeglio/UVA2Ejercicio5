@@ -15,14 +15,18 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
 }
 
 /* Header y navegación */
@@ -131,34 +135,46 @@ nav a:hover::after {
 
 /* Main content */
 main {
-    max-width: 1200px;
-    width: 95%;
-    margin: 2rem auto;
+    flex: 1 0 auto;
     padding: var(--content-padding);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Tablas */
-.horarios-table {
+.table-container {
     width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
     background: white;
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.horarios-table {
+    width: 100%;
+    min-width: 100%;
+    border-collapse: collapse;
+    margin: 0;
 }
 
 .horarios-table th,
 .horarios-table td {
-    padding: 1rem;
+    padding: 0.75rem;
     text-align: left;
     border: 1px solid #e1e1e1;
+    min-width: 120px;
 }
 
 .horarios-table th {
     background-color: var(--primary-color);
     color: white;
     font-weight: 500;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
 }
 
 .horarios-table tr:nth-child(even) {
@@ -270,6 +286,7 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    flex-shrink: 0;
     margin-top: auto;
 }
 
@@ -378,20 +395,22 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
     header {
-        padding: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: var(--header-height);
+        padding: 0.5rem 3rem;
+        position: relative;
     }
 
     header h1 {
-        margin-bottom: 0;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        padding: 0;
+        text-align: center;
     }
 
     .nav-toggle-label {
         display: block;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0.5rem;
     }
 
     nav {
@@ -405,6 +424,12 @@ footer {
         border-top: none;
         opacity: 0;
         visibility: hidden;
+    }
+
+    nav.active {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
     }
 
     nav ul {
@@ -452,12 +477,41 @@ footer {
         padding: 1rem;
     }
 
+    .table-container {
+        margin: 0.5rem -1rem;
+        width: calc(100% + 2rem);
+        border-radius: 0;
+    }
+
     .horarios-table {
-        display: block;
-        overflow-x: auto;
+        font-size: 0.9rem;
+    }
+
+    .horarios-table th,
+    .horarios-table td {
+        padding: 0.5rem;
+        min-width: 100px;
+    }
+
+    .horarios-table td:last-child {
+        padding-right: 1rem;
     }
 
     .profile, .contact-section {
         padding: 1rem;
+    }
+}
+
+@media (max-width: 390px) {
+    header {
+        padding: 0.5rem 2.5rem;
+    }
+
+    header h1 {
+        font-size: 0.9rem;
+    }
+
+    .nav-toggle-label {
+        right: 0.3rem;
     }
 } 
