@@ -1,0 +1,463 @@
+/* Estilos generales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --header-height: 60px;
+    --nav-width: 250px;
+    --content-padding: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* Header y navegación */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 1rem;
+}
+
+/* Menú hamburguesa */
+#nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    padding: 0.5rem;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: block;
+    background: white;
+    height: 2px;
+    width: 25px;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    bottom: 8px;
+}
+
+.nav-toggle-label span::after {
+    top: 8px;
+}
+
+/* Navegación */
+nav {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+    opacity: 0.8;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+nav a:hover {
+    opacity: 1;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main content */
+main {
+    max-width: 1200px;
+    width: 95%;
+    margin: 2rem auto;
+    padding: var(--content-padding);
+}
+
+/* Tablas */
+.horarios-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.horarios-table th,
+.horarios-table td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #e1e1e1;
+}
+
+.horarios-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+}
+
+.horarios-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.horarios-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Materias list */
+.materias-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.materias-list li {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.materias-list li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.materias-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color);
+}
+
+.materias-list li:hover a {
+    color: white;
+}
+
+/* Formularios */
+.contact-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-section h2 {
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    resize: none;
+    min-width: 0;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Perfil */
+.profile {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-image {
+    width: min(200px, 50vw);
+    height: min(200px, 50vw);
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile .info {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.profile .info h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.profile .info ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Avisos */
+.avisos-section {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.avisos-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.materia-avisos {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--background-color);
+    border-radius: 6px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.materia-avisos:last-child {
+    margin-bottom: 0;
+}
+
+.materia-avisos h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.materia-avisos h3::before {
+    content: '📌';
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.materia-avisos ul {
+    list-style: none;
+    padding-left: 2rem;
+}
+
+.materia-avisos li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+}
+
+.materia-avisos li::before {
+    content: '📅';
+    margin-right: 0.5rem;
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--header-height);
+    }
+
+    header h1 {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+
+    .nav-toggle-label {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-height));
+        background-color: var(--primary-color);
+        transition: all 0.3s ease;
+        border-top: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    nav ul {
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
+    nav a {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        opacity: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav a::after {
+        display: none;
+    }
+
+    #nav-toggle:checked ~ nav {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #nav-toggle:checked ~ .nav-toggle-label span {
+        background: transparent;
+    }
+
+    #nav-toggle:checked ~ .nav-toggle-label span::before {
+        transform: rotate(45deg) translate(5px, 5px);
+        background: white;
+    }
+
+    #nav-toggle:checked ~ .nav-toggle-label span::after {
+        transform: rotate(-45deg) translate(7px, -6px);
+        background: white;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .horarios-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .profile, .contact-section {
+        padding: 1rem;
+    }
+} 
