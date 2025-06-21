@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,11 @@
 </head>
 <body>
     <header>
+        <div class="theme-toggle">
+            <div id="themeSwitch" class="theme-switch">
+                <div class="theme-switch-handle"></div>
+            </div>
+        </div>
         <input type="checkbox" id="nav-toggle">
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
@@ -25,21 +30,57 @@
     </header>
 
     <main>
-        <section>
-            <h2>Materias del Cuatrimestre</h2>
-            <ul class="materias-list">
-                <li>Tendencias Tecnológicas</li>
-                <li><a href="https://facundodimeglio.github.io/PagDesarrolloWeb/" target="_blank">Diseño y Desarrollo Web</a></li>
-                <li>Ciencia de Datos</li>
-                <li>Arquitectura de Aplicaciones</li>
-                <li>Desarrollo de Aplicaciones 2</li>
-            </ul>
+        <section class="table-container">
+            <h2>Horarios de Cursada</h2>
+            <table class="horarios-table">
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Día y Horario</th>
+                        <th>Modalidad</th>
+                        <th>Aula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tendencias Tecnológicas</td>
+                        <td>Lunes 18:30 - 22:00</td>
+                        <td>Virtual</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Diseño y Desarrollo Web</td>
+                        <td>Martes 18:30 - 22:00</td>
+                        <td>Virtual</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Ciencia de Datos</td>
+                        <td>Miércoles 18:30 - 22:00</td>
+                        <td>Virtual</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Arquitectura de Aplicaciones</td>
+                        <td>Jueves 18:30 - 22:00</td>
+                        <td>Virtual</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Desarrollo de Aplicaciones 2</td>
+                        <td>Viernes 18:30 - 22:00</td>
+                        <td>Virtual</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Mi Libreta UADE</p>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script src="js/theme.js"></script>
 </body>
 </html> 
