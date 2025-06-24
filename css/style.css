@@ -294,38 +294,103 @@ main {
     background-color: #f1f1f1;
 }
 
-/* Materias list */
+/* Materias section styles */
+.materias-section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.materias-section h2 {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
 .materias-list {
-    list-style: none;
-    padding: 0;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
-.materias-list li {
-    background-color: var(--card-bg);
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+.materia-item {
+    background: var(--card-bg);
     border: 1px solid var(--border-color);
-}
-
-.materias-list li a {
-    color: var(--primary-color);
-    text-decoration: none;
-    display: block;
+    border-radius: 8px;
+    padding: 1.2rem;
     transition: all 0.3s ease;
 }
 
-.materias-list li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    background-color: var(--secondary-color);
+.materia-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.materias-list li:hover a {
-    color: white;
+.materia-item h3 {
+    color: var(--text-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.materia-item h3 a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.materia-item h3 a:hover {
+    text-decoration: underline;
+}
+
+.materia-item p {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Dark mode styles for materias */
+[data-theme="dark"] .materia-item {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .materia-item:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .materia-item h3 a {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .materia-item h3 a:hover {
+    color: #5dade2;
+}
+
+/* Responsive adjustments for materias */
+@media (max-width: 768px) {
+    .materias-section {
+        padding: 1.5rem;
+    }
+
+    .materias-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .materias-section {
+        padding: 1rem;
+    }
+
+    .materia-item {
+        padding: 1rem;
+    }
+
+    .materia-item:hover {
+        transform: none;
+    }
 }
 
 /* Formularios */
